@@ -122,7 +122,7 @@ public class WelcomeScreen extends AppCompatActivity {
         float scale = getResources().getDisplayMetrics().density;
         int padding = (int) (5 * scale + 0.5f);
 
-        for (int i = 0; i < TOTAL_PAGES - 1; i++) {
+        for (int i = 0; i < TOTAL_PAGES; i++) {
             ImageView circle = new ImageView(this);
             circle.setImageResource(R.drawable.ic_checkbox_blank_circle_white_18dp);
             circle.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -136,7 +136,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
     private void setIndicator(int index) {
         if (index < TOTAL_PAGES) {
-            for (int i = 0; i < TOTAL_PAGES - 1; i++) {
+            for (int i = 0; i < TOTAL_PAGES; i++) {
                 ImageView circle = (ImageView) circles.getChildAt(i);
                 if (i == index) {
                     circle.setColorFilter(getResources().getColor(R.color.text_selected));
