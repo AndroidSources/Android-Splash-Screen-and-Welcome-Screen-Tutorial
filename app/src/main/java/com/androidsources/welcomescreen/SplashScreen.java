@@ -6,25 +6,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 public class SplashScreen extends AppCompatActivity {
+    
+     private static int  SPLASH_TIME = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Create full screen
+         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
-        //thread for splash screen running
-        Thread logoTimer = new Thread() {
+      
+        new Handler().postDelayed(new Runnable() {
+            @Override
             public void run() {
-                try {
-                    sleep(2000);
-                } catch (InterruptedException e) {
-                    Log.d("Exception", "Exception" + e);
-                } finally {
-                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
-                }
+                Intent mySuperIntent = new Intent(SplashScreen.this, MainActivity.class);
+                startActivity(mySuperIntent);
                 finish();
-            }
-        };
-        logoTimer.start();
-    }
 
+            }
+        }, SPLASH_TIME);
+    }
 }
